@@ -238,6 +238,30 @@ h1 { margin: 0; font-family: "Plex Mono", ui-monospace, monospace; font-weight: 
 .terminal-note { margin: 0; padding: 12px 20px 14px; border-top: 1px solid var(--term-rule); font-size: 0.8125rem !important; line-height: 1.6; color: var(--term-dim); }
 .terminal-note a { color: var(--term-ink); text-decoration: underline; text-underline-offset: 3px; }
 
+/* ---------- the whole ecosystem: every module, grouped by area ---------- */
+.eco { margin: 28px 0 0; font-size: 0.9375rem; color: var(--ink-2); }
+.soon {
+  display: inline-block; margin-left: 6px; padding: 2px 8px; border: 1.5px solid var(--line); background: var(--yellow); color: #18191e;
+  font-size: 0.75rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; vertical-align: 1px;
+}
+.modules-section { padding: 0 0 120px; scroll-margin-top: 24px; }
+.modules-section > .wrap::before { content: ""; display: block; height: 2px; margin-bottom: 56px; background: var(--line); }
+.modules-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: end; }
+.modules-head .h2 { grid-column: 1 / span 7; }
+.modules-head .para { grid-column: 8 / span 5; margin: 0; }
+.catalogue { margin-top: 48px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 2px solid var(--line); background: var(--card); }
+.group { padding: 24px 22px 26px; border-left: 2px solid var(--line); }
+.group:first-child { border-left: 0; }
+.group h3 { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font-size: 1rem; font-weight: 800; letter-spacing: -0.01em; }
+.group h3:not(:first-child) { margin-top: 26px; }
+.group .dot:not([class*="c-"]) { background: var(--card); }
+.group ul { list-style: none; margin: 0; padding: 0; }
+.group li { padding: 7px 0; border-top: 1px solid var(--rule); font-size: 0.9375rem; line-height: 1.4; color: var(--ink-3); }
+.group li b { display: block; font-weight: 700; color: var(--ink); }
+.group li .soon { margin: 4px 0 0; }
+.modules-foot { margin: 18px 0 0; font-size: 0.9375rem; }
+.modules-foot a { font-weight: 700; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+
 /* ---------- colophon: one row ---------- */
 .colophon { border-top: 1px solid var(--rule); }
 .colophon-row { display: flex; align-items: center; gap: 24px; min-height: 88px; flex-wrap: wrap; padding-top: 16px; padding-bottom: 16px; }
@@ -249,6 +273,11 @@ h1 { margin: 0; font-family: "Plex Mono", ui-monospace, monospace; font-weight: 
 
 /* ---------- responsive ---------- */
 @media (max-width: 980px) {
+  .catalogue { grid-template-columns: 1fr 1fr; }
+  .group:nth-child(3) { border-left: 0; }
+  .group:nth-child(n+3) { border-top: 2px solid var(--line); }
+  .modules-head .h2, .modules-head .para { grid-column: 1 / -1; }
+  .modules-head .para { margin-top: 18px; }
   .hero { padding: 24px 0 96px; }
   .hero-copy, .ledger, .picker, .stage { grid-column: 1 / -1; }
   .ledger { margin-top: 48px; }
@@ -257,6 +286,9 @@ h1 { margin: 0; font-family: "Plex Mono", ui-monospace, monospace; font-weight: 
   .nav-links { display: none; }
 }
 @media (max-width: 560px) {
+  .catalogue { grid-template-columns: 1fr; }
+  .group { border-left: 0; }
+  .group + .group { border-top: 2px solid var(--line); }
   .wrap { padding: 0 16px; }
   .segmented { grid-template-columns: 1fr 1fr; }
   .rail li { grid-template-columns: 1fr; gap: 2px; padding-left: 26px; }

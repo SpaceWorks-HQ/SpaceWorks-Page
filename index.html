@@ -29,6 +29,7 @@
       <nav class="nav" aria-label="Main">
         <div class="nav-links">
           <a href="#box">What it runs</a>
+          <a href="#modules">Modules</a>
           <a href="#install">Install</a>
           <a href="https://github.com/SpaceWorks-HQ/SpaceWorks">GitHub</a>
         </div>
@@ -45,14 +46,15 @@
         <div class="hero-copy">
           <h1 id="hero-title">The lending desk that keeps the receipts.</h1>
           <p class="lede">
-            Free, self-hosted software for makerspaces and tool libraries — or for events or bookings alone.
-            A loan doesn’t move until its box is scanned and photographed, and once it’s on the record, nobody can
+            Free, self-hosted software for makerspaces, tool libraries, event spaces and bookable rooms. A loan
+            doesn’t move until its box is scanned and photographed, and once it’s on the record, nobody can
             quietly change it.
           </p>
           <div class="actions">
             <a class="btn btn-solid" href="#install">Install</a>
             <a class="btn" href="#box">What it runs</a>
           </div>
+          <p class="eco">A complete ecosystem: staff console, member area, public pages and kiosk. <span class="soon">Mobile apps coming soon</span></p>
         </div>
 
         <article class="ledger" aria-labelledby="ledger-title">
@@ -100,14 +102,14 @@
         <div class="picker">
           <h2 id="box-heading" class="h2">Choose what your space runs</h2>
           <p class="para">
-            Lend tools, run a whole makerspace, or host only events or bookings: it’s the same install, and what
-            you leave out simply isn’t there.
+            Lend tools, run a whole makerspace, host events or take bookings: it’s the same install, and what you
+            leave out simply isn’t there.
           </p>
           <div class="segmented" role="group" aria-label="Start from">
             <button type="button" data-preset="inventory,membership">Tool library</button>
             <button type="button" data-preset="inventory,machines,events,membership">Makerspace</button>
-            <button type="button" data-preset="events">Events only</button>
-            <button type="button" data-preset="bookings">Bookings only</button>
+            <button type="button" data-preset="events">Events</button>
+            <button type="button" data-preset="bookings">Bookings</button>
           </div>
           <fieldset class="areas">
             <legend class="sr-only">Areas</legend>
@@ -136,12 +138,99 @@
         <fieldset class="addons">
           <legend class="sr-only">Add to any box</legend>
           <p class="addons-title" aria-hidden="true">Add to any box</p>
-          <label class="area addon"><span class="aname">Membership<small>Join requests, vouching, plans and the mobile app</small></span><input type="checkbox" data-area="membership" data-label="Membership" checked></label>
+          <label class="area addon"><span class="aname">Membership<small>Join requests, vouching, plans and renewals</small></span><input type="checkbox" data-area="membership" data-label="Membership" checked></label>
           <label class="area addon"><span class="aname">Online payments<small>Stripe or Razorpay; without it, debts are settled at the desk</small></span><input type="checkbox" data-area="payments" data-label="Online payments"></label>
           <label class="area addon"><span class="aname">Reports<small>Usage, finance and membership, with exports</small></span><input type="checkbox" data-area="reports" data-label="Reports"></label>
           <label class="area addon"><span class="aname">Chat alerts<small>Telegram, Slack, Discord, Mattermost, webhooks</small></span><input type="checkbox" data-area="chat" data-label="Chat alerts"></label>
         </fieldset>
         <p class="always">Backup, notifications and email are always on. Any area can be switched later in settings.</p>
+      </div>
+    </section>
+    <section id="modules" class="modules-section" aria-labelledby="modules-heading">
+      <div class="wrap">
+        <div class="modules-head">
+          <h2 id="modules-heading" class="h2">A complete ecosystem, in one free install</h2>
+          <p class="para">
+            Staff console, member area, public pages and a front-desk kiosk, with every module below in the same
+            install. Native mobile apps for members are coming soon.
+          </p>
+        </div>
+        <div class="catalogue">
+          <section class="group" aria-labelledby="g-inventory">
+            <h3 id="g-inventory"><span class="dot c-blue" aria-hidden="true"></span>Inventory &amp; lending</h3>
+            <ul>
+              <li><b>Public catalogue</b> what you lend, with honest availability</li>
+              <li><b>Requests</b> review, accept and track every loan</li>
+              <li><b>Front-desk handover</b> hand out and take back at the counter</li>
+              <li><b>Evidence</b> issue and return photos, kept private</li>
+              <li><b>QR codes and scanner</b> boxes, tools and single units</li>
+              <li><b>Asset units</b> drill #3, not just “one drill”</li>
+              <li><b>Containers</b> boxes inside shelves inside rooms</li>
+              <li><b>Stock transfers</b> between rooms and between spaces</li>
+              <li><b>Stocktake</b> counts, gaps and discipline</li>
+              <li><b>Bulk import and QR label batches</b></li>
+              <li><b>Procurement</b> the to-buy list and its receipts</li>
+              <li><b>Connected devices</b> printers and label printers on your network</li>
+            </ul>
+          </section>
+          <section class="group" aria-labelledby="g-machines">
+            <h3 id="g-machines"><span class="dot c-green" aria-hidden="true"></span>Machines</h3>
+            <ul>
+              <li><b>Machine registry</b> every machine and who may use it</li>
+              <li><b>Certifications</b> training records, gating and reminders</li>
+              <li><b>Service queue</b> members ask, staff run the job</li>
+              <li><b>3D printing</b> print jobs, materials and intake</li>
+              <li><b>Maintenance</b> schedules, meters and a calendar feed</li>
+            </ul>
+            <h3 id="g-events"><span class="dot c-yellow" aria-hidden="true"></span>Events</h3>
+            <ul>
+              <li><b>Events</b> free, invite-only or paid</li>
+              <li><b>Tickets and promo codes</b></li>
+              <li><b>QR check-in</b> at the door, even offline</li>
+            </ul>
+            <h3 id="g-bookings"><span class="dot c-pink" aria-hidden="true"></span>Bookings</h3>
+            <ul>
+              <li><b>Rooms and resources</b> with buffers and cutoffs</li>
+              <li><b>Recurring slots and calendar feeds</b></li>
+            </ul>
+          </section>
+          <section class="group" aria-labelledby="g-members">
+            <h3 id="g-members"><span class="dot" aria-hidden="true"></span>Members</h3>
+            <ul>
+              <li><b>Membership</b> join requests, vouching, plans and renewals</li>
+              <li><b>Member accounts</b> a home for history, fees and notices</li>
+              <li><b>Mobile apps</b> iOS and Android <span class="soon">Coming soon</span></li>
+            </ul>
+            <h3 id="g-money"><span class="dot" aria-hidden="true"></span>Money</h3>
+            <ul>
+              <li><b>Charges and receipts</b> fees, deposits and late fees, always tracked</li>
+              <li><b>Online payments</b> Stripe or Razorpay checkout</li>
+            </ul>
+            <h3 id="g-reports"><span class="dot" aria-hidden="true"></span>Reports and analytics</h3>
+            <ul>
+              <li><b>Usage and finance reports</b> with exports</li>
+              <li><b>Membership analytics</b> cohorts, retention, MRR and ARR</li>
+              <li><b>Saved views and scheduled reports</b></li>
+            </ul>
+          </section>
+          <section class="group" aria-labelledby="g-platform">
+            <h3 id="g-platform"><span class="dot" aria-hidden="true"></span>Alerts</h3>
+            <ul>
+              <li><b>Notifications and email</b> with quiet hours and digests</li>
+              <li><b>Chat alerts</b> Telegram, Slack, Discord and Mattermost</li>
+              <li><b>Signed webhooks</b> to your own systems</li>
+            </ul>
+            <h3 id="g-ops"><span class="dot" aria-hidden="true"></span>Running it</h3>
+            <ul>
+              <li><b>Many spaces, one server</b> each fully separate</li>
+              <li><b>Roles you define</b> per space, action by action</li>
+              <li><b>Audit log</b> append-only, for every change</li>
+              <li><b>Backups</b> archives you hold the keys to</li>
+              <li><b>Updates</b> from GitHub releases, with a backup first</li>
+            </ul>
+          </section>
+        </div>
+        <p class="modules-foot"><a href="https://github.com/SpaceWorks-HQ/SpaceWorks/blob/main/docs/MODULES.md">Every module, what it adds and what happens without it</a></p>
       </div>
     </section>
   </main>
