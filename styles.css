@@ -262,6 +262,14 @@ h1 { margin: 0; font-family: "Plex Mono", ui-monospace, monospace; font-weight: 
 .modules-foot { margin: 18px 0 0; font-size: 0.9375rem; }
 .modules-foot a { font-weight: 700; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
 
+/* ---------- built-in features: the same ruled sheet, three across ---------- */
+.features-section { padding: 0 0 120px; scroll-margin-top: 24px; }
+.features-section > .wrap::before { content: ""; display: block; height: 2px; margin-bottom: 56px; background: var(--line); }
+.features { margin-top: 48px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 2px solid var(--line); border-right: 0; border-bottom: 0; background: var(--card); }
+.feature { padding: 22px 22px 24px; border-right: 2px solid var(--line); border-bottom: 2px solid var(--line); }
+.feature h3 { margin: 0; font-size: 1.0625rem; font-weight: 800; letter-spacing: -0.01em; }
+.feature p { margin: 8px 0 0; font-size: 0.9375rem; line-height: 1.5; color: var(--ink-2); }
+
 /* ---------- colophon: one row ---------- */
 .colophon { border-top: 1px solid var(--rule); }
 .colophon-row { display: flex; align-items: center; gap: 24px; min-height: 88px; flex-wrap: wrap; padding-top: 16px; padding-bottom: 16px; }
@@ -273,6 +281,7 @@ h1 { margin: 0; font-family: "Plex Mono", ui-monospace, monospace; font-weight: 
 
 /* ---------- responsive ---------- */
 @media (max-width: 980px) {
+  .features { grid-template-columns: 1fr 1fr; }
   .catalogue { grid-template-columns: 1fr 1fr; }
   .group:nth-child(3) { border-left: 0; }
   .group:nth-child(n+3) { border-top: 2px solid var(--line); }
@@ -286,6 +295,7 @@ h1 { margin: 0; font-family: "Plex Mono", ui-monospace, monospace; font-weight: 
   .nav-links { display: none; }
 }
 @media (max-width: 560px) {
+  .features { grid-template-columns: 1fr; }
   .catalogue { grid-template-columns: 1fr; }
   .group { border-left: 0; }
   .group + .group { border-top: 2px solid var(--line); }
