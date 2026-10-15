@@ -42,3 +42,7 @@ Everything on the page describes the real product, so keep it in step with the m
 - The sample loan follows the request workflow: requested, accepted, issued with a box QR scan and a
   photo, returned with a photo and a note.
 - The version line in the footer should match the latest release.
+
+## License
+
+**[GNU Affero General Public License v3](LICENSE)** (`AGPL-3.0-or-later`), matching SpaceWorks.
