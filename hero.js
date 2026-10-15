@@ -11,7 +11,7 @@
   var story = sequence.querySelector('.workspace-section');
   var backdrop = sequence.querySelector('.hero-backdrop');
   var reduced = matchMedia('(prefers-reduced-motion: reduce)');
-  var geometry, pending = false;
+  var geometry, lastProgress, pending = false;
 
   function clamp(value) { return Math.max(0, Math.min(1, value)); }
   function ease(value) { var t = clamp(value); return t * t * (3 - 2 * t); }
@@ -20,6 +20,8 @@
     pending = false;
     if (!geometry) return;
     var progress = clamp(-sequence.getBoundingClientRect().top / geometry.distance);
+    if (progress === lastProgress) return;
+    lastProgress = progress;
     var rise = ease(progress / .38);
     var zoom = ease((progress - .55) / .29);
     var reveal = ease((progress - .86) / .14);
@@ -37,10 +39,11 @@
   }
 
   function schedule() {
-    if (!pending) { pending = true; requestAnimationFrame(paint); }
+    if (geometry && !pending) { pending = true; requestAnimationFrame(paint); }
   }
 
   function measure() {
+    lastProgress = null;
     var height = innerHeight;
     var header = document.querySelector('.top').offsetHeight;
     var enabled = !reduced.matches && height > copy.offsetHeight + header + 140;
@@ -51,6 +54,8 @@
     }
     if (!enabled) {
       geometry = null;
+      sequence.style.removeProperty('--copy-top');
+      sequence.style.removeProperty('--preview-start');
       [copy, panel, frame, figure, backdrop, story].forEach(function (item) { item.removeAttribute('style'); });
       copy.inert = story.inert = false;
       return;

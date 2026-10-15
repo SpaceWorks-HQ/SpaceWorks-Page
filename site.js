@@ -1,35 +1,38 @@
-// Theme, clipboard, installer summary, and the terminal preview.
+// Navigation, clipboard, installer summary, and the terminal preview.
 (function () {
-  var root = document.documentElement;
-  var toggle = document.querySelector("[data-theme-toggle]");
-  var moon = '<path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>';
-  var sun = '<circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6 13 13M3 13l1.4-1.4M11.6 4.4 13 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>';
-
-  function paint() {
-    var dark = root.dataset.theme === "dark";
-    if (!toggle) return;
-    toggle.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
-    toggle.querySelector("svg").innerHTML = dark ? sun : moon;
-  }
-  if (toggle) {
-    toggle.addEventListener("click", function () {
-      root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
-      try { localStorage.setItem("sw-theme", root.dataset.theme); } catch (e) {}
-      paint();
+  var menu = document.querySelector('.mobile-menu');
+  if (menu) {
+    menu.addEventListener('click', function (event) {
+      if (event.target.closest('a')) menu.open = false;
+    });
+    menu.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && menu.open) {
+        menu.open = false;
+        menu.querySelector('summary').focus();
+      }
     });
   }
-  paint();
 
   document.querySelectorAll("[data-copy-text]").forEach(function (button) {
     var label = button.textContent;
-    button.addEventListener("click", function () {
+    var reset;
+    button.setAttribute('aria-live', 'polite');
+    button.addEventListener("click", async function () {
       var text = button.getAttribute("data-copy-text");
-      if (!text || !navigator.clipboard) return;
-      navigator.clipboard.writeText(text).then(function () {
+      if (!text || button.disabled) return;
+      clearTimeout(reset);
+      button.disabled = true;
+      try {
+        await navigator.clipboard.writeText(text);
         button.textContent = "Copied";
         button.classList.add("done");
-        setTimeout(function () { button.textContent = label; button.classList.remove("done"); }, 1600);
-      });
+      } catch (error) {
+        button.textContent = "Select and copy below";
+        button.classList.remove("done");
+      } finally {
+        button.disabled = false;
+        reset = setTimeout(function () { button.textContent = label; button.classList.remove("done"); }, 2000);
+      }
     });
   });
 

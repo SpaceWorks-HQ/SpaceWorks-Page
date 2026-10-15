@@ -13,11 +13,6 @@
   --line: #D5D0C6; --hover: #EFE6DB; --action: var(--teal); --action-text: var(--cream);
   --action-hover: #02675D; --focus: var(--teal); --radius: 20px; color-scheme: light;
 }
-:root[data-theme="dark"] {
-  --page: var(--ink); --panel: #223835; --text: var(--cream); --muted: #C0BEB5;
-  --line: #374A47; --hover: #2E423F; --action: var(--citron); --action-text: var(--ink);
-  --action-hover: #CBEA85; --focus: var(--citron); color-scheme: dark;
-}
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 28px; }
 body { margin: 0; background: var(--page); color: var(--text); font: 400 18px/1.55 "Gilroy", sans-serif; font-synthesis: none; -webkit-font-smoothing: antialiased; }
@@ -55,11 +50,6 @@ p { text-wrap: pretty; }
 .top .brand img { width: 210px; }
 .brand { display: inline-block; flex: none; padding-block: 12px; }
 .brand img { width: 298px; }
-.brand .logo-dark { display: none; }
-:root[data-theme="dark"] .brand .logo-light { display: none; }
-:root[data-theme="dark"] .brand .logo-dark { display: block; }
-:root[data-theme="dark"] :is(.top, .colophon) .brand .logo-light { display: block; }
-:root[data-theme="dark"] :is(.top, .colophon) .brand .logo-dark { display: none; }
 .nav, .nav-links { display: flex; align-items: center; }
 .nav { gap: 20px; }
 .nav-links { gap: 28px; font-size: 15px; font-weight: 500; }
@@ -68,9 +58,6 @@ p { text-wrap: pretty; }
 .nav-links .nav-start { padding: 10px 16px; background: var(--text); color: var(--page); border-radius: 8px; }
 .nav-start .arrow { margin-left: 12px; }
 .nav-links .nav-start:hover { background: var(--action); color: var(--action-text); text-decoration: none; }
-.icon-only { display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 8px; color: var(--text); background: transparent; cursor: pointer; }
-.icon-only svg { width: 18px; height: 18px; }
-.icon-only:hover { background: var(--hover); }
 .mobile-menu { display: none; }
 
 /* One continuous scene lets the inventory preview become the second screen. */
@@ -309,7 +296,7 @@ td:nth-child(2) { width: 20%; }
   .colophon-row { gap: 24px; }.colophon-row .brand img { width: 230px; }.colophon-row nav { width: 100%; margin: 0; gap: 20px; }
 }
 @media (max-width: 430px) {
-  .wrap { width: calc(100% - 32px); }.brand img { width: 190px; }.nav { gap: 12px; }.icon-only { width: 38px; height: 38px; }.bar { gap: 12px; }
+  .wrap { width: calc(100% - 32px); }.brand img { width: 190px; }.nav { gap: 12px; }.bar { gap: 12px; }
   .deployment-locations { grid-template-columns: 1fr; gap: 36px; margin-top: 36px; }.deployment-brand { width: 240px; }.deployment-locations a { gap: 16px; }
   .top .brand img { width: 174px; }.hero h1 { font-size: 10.5vw; }.hero .eyebrow { font-size: 11px; }.hero .lede { font-size: 17px; }.hero .hero-note { font-size: 11px; }.hero .actions { gap: 20px; }.hero .btn, .hero .text-link { font-size: 14px; }.hero .btn { gap: 14px; padding-inline: 18px; }
   .actions { gap: 20px; }.btn { font-size: 15px; gap: 20px; padding: 14px 18px; }.text-link { font-size: 15px; gap: 10px; }

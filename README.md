@@ -32,7 +32,7 @@ Run `python3 -m unittest test_build.py` to check that the export is complete and
 python -m http.server 5100
 ```
 
-Then open <http://localhost:5100/>. The theme toggle remembers light or dark per browser.
+Then open <http://localhost:5100/>. The site uses the cream brand theme for every visitor.
 
 `hero.js` brings the inventory concept fully into view, holds it, then zooms from its center until
 the white content fills the screen. The next section's text enters after the zoom finishes. Reduced-motion
@@ -42,6 +42,7 @@ entry, reveal, reverse and fallback checks.
 The browser terminal preview accepts typing at the blinking cursor. Entering `tinkerhub` and pressing
 Enter responds with `six sebin`; it does not execute commands.
 Run `node test_terminal.cjs` to check input handling.
+Run `node test_site.cjs` to check clipboard feedback and mobile menu navigation.
 
 ## What the page says, and where it comes from
 

@@ -4,7 +4,10 @@ const vm = require('node:vm');
 
 function element(measurements = {}) {
   return Object.assign({
-    style: { setProperty(key, value) { this[key] = value; } },
+    style: {
+      setProperty(key, value) { this[key] = value; },
+      removeProperty(key) { delete this[key]; }
+    },
     removeAttribute() { this.style = {}; }
   }, measurements);
 }
@@ -60,6 +63,14 @@ assert.equal(figure.style.opacity, '0');
 assert.equal(story.style.opacity, '1');
 assert.equal(story.style.transform, 'translateY(0px) scale(1)');
 assert.equal(story.inert, false);
+
+// Scrolling beyond the sequence should not repaint the same completed state.
+Object.defineProperty(copy.style, 'opacity', {
+  configurable: true, get() { return '0'; },
+  set() { assert.fail('Completed sequence was painted again'); }
+});
+top = -2000; events.scroll();
+delete copy.style.opacity;
 top = 85; events.scroll();
 assert.equal(copy.inert, false);
 assert.equal(copy.style.opacity, '1');
@@ -69,6 +80,8 @@ assert.equal(enabled, false);
 assert.equal(figure.style.transform, undefined);
 assert.equal(copy.inert, false);
 assert.equal(story.inert, false);
+assert.equal(sequence.style['--copy-top'], undefined);
+assert.equal(sequence.style['--preview-start'], undefined);
 reduced.matches = false; context.innerHeight = 540; events.resize();
 assert.equal(enabled, false);
 context.innerHeight = 800; story.scrollHeight = 900; events.resize();

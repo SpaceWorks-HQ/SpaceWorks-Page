@@ -26,7 +26,7 @@ class PageParser(HTMLParser):
 class BuildTest(unittest.TestCase):
     def test_complete_page_and_preserved_installer(self):
         html = build()
-        self.assertEqual(html, (ROOT / "index.html").read_text())
+        self.assertEqual(html, (ROOT / "index.html").read_text(encoding="utf-8"))
         page = PageParser()
         page.feed(html)
         self.assertEqual(len(page.ids), len(set(page.ids)))
@@ -35,7 +35,7 @@ class BuildTest(unittest.TestCase):
         self.assertEqual(html.count('class="module"'), 9)
         self.assertEqual(html.count('class="feature"'), 12)
         self.assertIn('data-copy-text="curl -fsSL https://raw.githubusercontent.com/SpaceWorks-HQ/SpaceWorks/main/install.sh | bash"', html)
-        css = (ROOT / "styles.css").read_text()
+        css = (ROOT / "styles.css").read_text(encoding="utf-8")
         for font in re.findall(r'url\("(fonts/[^\"]+)"\)', css):
             self.assertTrue((ROOT / font).is_file(), font)
         self.assertNotRegex(html + css, r"IBM|Plex|Archivo")

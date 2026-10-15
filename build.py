@@ -4,10 +4,7 @@ import re
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).parent
-MARK_INLINE = (
-    '<img class="logo-light" src="assets/brand/lockup-horizontal.svg" width="360" height="58" alt="">'
-    '<img class="logo-dark" src="assets/brand/lockup-horizontal-reversed.svg" width="360" height="58" alt="">'
-)
+MARK_INLINE = '<img src="assets/brand/lockup-horizontal.svg" width="360" height="58" alt="">'
 
 
 def build() -> str:
