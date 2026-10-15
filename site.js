@@ -1,4 +1,4 @@
-// Theme toggle, copy-to-clipboard, and the area picker that drives the installer summary.
+// Theme, clipboard, installer summary, and the terminal preview.
 (function () {
   var root = document.documentElement;
   var toggle = document.querySelector("[data-theme-toggle]");
@@ -67,4 +67,17 @@
     });
   });
   if (boxes.length) render();
+
+  var terminalForm = document.querySelector('[data-terminal-form]');
+  if (terminalForm) {
+    var commandInput = document.querySelector('#terminal-command');
+    var response = document.querySelector('[data-terminal-response]');
+    terminalForm.hidden = false;
+    terminalForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var command = commandInput.value.trim().toLowerCase();
+      if (!command) return;
+      response.textContent = command === 'tinkerhub' ? 'six sebin' : 'Command not found.';
+    });
+  }
 })();
