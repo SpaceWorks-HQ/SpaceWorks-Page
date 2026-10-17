@@ -30,11 +30,12 @@
       <nav class="nav" aria-label="Main">
         <div class="nav-links">
           <a href="#workspace">Product</a>
+          <a href="#ecosystem">Ecosystem</a>
           <a href="https://spaceworks-hq.github.io/SpaceWorks-Docs/">Docs</a>
           <a href="https://github.com/SpaceWorks-HQ/SpaceWorks">GitHub</a>
           <a class="nav-start" href="#install">Get started <svg class="arrow" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
         </div>
-        <details class="mobile-menu"><summary>Menu</summary><nav aria-label="Mobile"><a href="#workspace">Product</a><a href="https://spaceworks-hq.github.io/SpaceWorks-Docs/">Docs</a><a href="https://github.com/SpaceWorks-HQ/SpaceWorks">GitHub</a><a href="#install">Get started</a></nav></details>
+        <details class="mobile-menu"><summary>Menu</summary><nav aria-label="Mobile"><a href="#workspace">Product</a><a href="#ecosystem">Ecosystem</a><a href="https://spaceworks-hq.github.io/SpaceWorks-Docs/">Docs</a><a href="https://github.com/SpaceWorks-HQ/SpaceWorks">GitHub</a><a href="#install">Get started</a></nav></details>
       </nav>
     </div>
   </header>
@@ -211,7 +212,7 @@
           <div><p class="eyebrow">04 / Room for the whole space</p><h2 id="modules-heading">All the pieces.<br>One place.</h2></div>
           <p class="para">
             Staff console, member area, public pages and a front-desk kiosk, with every module below in the same
-            install. Native mobile apps for members are coming soon.
+            install. Native iOS and Android apps for members are on the way.
           </p>
         </div>
         <div class="catalogue">
@@ -249,7 +250,7 @@
               <li><b>Personal accounts</b> one per person, always on: sign up with a password, Google, Apple or a phone number</li>
               <li><b>Member area</b> each person’s own loans, returns, fees and notices</li>
               <li><b>Membership</b> join requests, vouching, plans and renewals</li>
-              <li><b>Mobile apps</b> iOS and Android <span class="soon">Coming soon</span></li>
+              <li><b>Mobile apps</b> native iOS and Android <span class="soon">In development</span></li>
             </ul></details>
           <details class="module"><summary id="g-money"><span class="dot" aria-hidden="true"></span>Money<span class="expand" aria-hidden="true">+</span></summary><ul>
               <li><b>Charges and receipts</b> fees, deposits and late fees, always tracked</li>
@@ -277,10 +278,57 @@
         <p class="modules-foot"><a href="https://spaceworks-hq.github.io/SpaceWorks-Docs/guides/modules/">Every module, what it adds and what happens without it</a></p>
       </div>
     </section>
+    <section id="ecosystem" class="ecosystem-section section" aria-labelledby="ecosystem-heading">
+      <div class="wrap">
+        <div class="modules-head">
+          <div><p class="eyebrow">05 / One system, every screen</p><h2 id="ecosystem-heading">One server.<br>Everywhere you make.</h2></div>
+          <p class="para">
+            The same records follow you from the front desk to the staff console to a member’s phone. Every app talks to
+            the server you run, so your data stays yours.
+          </p>
+        </div>
+        <div class="surfaces">
+          <article class="surface">
+            <span class="surface-tag is-live">Live</span>
+            <h3>The server</h3>
+            <p>One Docker install runs the API, database, storage and background jobs, for one space or many.</p>
+            <a class="surface-link" href="https://github.com/SpaceWorks-HQ/SpaceWorks">Source <svg class="arrow" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+          </article>
+          <article class="surface">
+            <span class="surface-tag is-live">Live</span>
+            <h3>Staff console</h3>
+            <p>Requests, handovers, stock, machines, events and reports, updating the moment they change.</p>
+          </article>
+          <article class="surface">
+            <span class="surface-tag is-live">Live</span>
+            <h3>Member area and public pages</h3>
+            <p>Browse the catalogue, request a tool, book a room, and see your own loans and fees.</p>
+          </article>
+          <article class="surface">
+            <span class="surface-tag is-live">Live</span>
+            <h3>Front-desk kiosk</h3>
+            <p>A counter screen for the busy moments: scan the box, take the photo, hand it over.</p>
+          </article>
+          <article class="surface">
+            <span class="surface-tag">In development</span>
+            <h3>iOS app</h3>
+            <p>Native SwiftUI for iPhone, on iOS 17 and later. Point it at your own server.</p>
+            <a class="surface-link" href="https://github.com/SpaceWorks-HQ/SpaceWorks-iOS">Follow along <svg class="arrow" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+          </article>
+          <article class="surface">
+            <span class="surface-tag">In development</span>
+            <h3>Android app</h3>
+            <p>Native Kotlin and Compose for phones and tablets, on Android 8 and later.</p>
+            <a class="surface-link" href="https://github.com/SpaceWorks-HQ/SpaceWorks-Android">Follow along <svg class="arrow" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+          </article>
+        </div>
+        <p class="surfaces-foot">Also part of it: <a href="https://spaceworks-hq.github.io/SpaceWorks-Docs/">the docs</a>, <a href="https://spaceworks-hq.github.io/SpaceWorks-Design/">the design system</a> every app draws from, and <a href="https://spaceworks-hq.github.io/SpaceWorks-Docs/api/overview/">an open REST API</a> with signed webhooks for your own tools.</p>
+      </div>
+    </section>
     <section id="features" class="features-section section" aria-labelledby="features-heading">
       <div class="wrap">
         <div class="modules-head">
-          <div><p class="eyebrow">05 / The foundations are covered</p><h2 id="features-heading">Made to run.<br>Built to stay yours.</h2></div>
+          <div><p class="eyebrow">06 / The foundations are covered</p><h2 id="features-heading">Made to run.<br>Built to stay yours.</h2></div>
           <p class="para">
             These come with every install, whichever areas you turn on.
           </p>
